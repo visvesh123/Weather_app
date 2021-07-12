@@ -1,0 +1,6 @@
+export const GET_CURR_WEATHER = 'GET_CURR_WEATHER'
+export const SET_ERROR = 'SET_ERROR'
+export const GET_LAT_LONG = 'GET_LAT_LONG'
+export const LOGIN_TYPE = 'LOGIN_TYPE'
+export const CURR_PLACE = 'CURR_PLACE'
+export const SEARCH_CITY = 'SEARCH_CITY'
