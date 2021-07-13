@@ -41,7 +41,7 @@ const SignUpScreen = (props) => {
          console.log(err.message);
         });
 
-        props.navigation.navigate('Weather')
+        props.navigation.navigate('Login')
   }
   return (
     <>

@@ -1,14 +1,17 @@
 import React, {useEffect ,useState} from 'react'
-import { View, Text, StyleSheet , Button , StatusBar ,FlatList ,SafeAreaView, AsyncStorage} from 'react-native'
+import { View, Text, StyleSheet , Button , StatusBar ,FlatList ,SafeAreaView, AsyncStorage , RefreshControl} from 'react-native'
 import axios from 'axios'
 import WatchListCard from '../components/WatchListCard'
-
+import { useIsFocused } from "@react-navigation/native";
   
 
 
 const WatchListScreen = (props) => {
   const [watchCities , setWatchCities ] = useState([])
   const [ finalData , setFinalData] = useState([])
+
+
+  const isFocused = useIsFocused();
   var data = new Array()
     useEffect(  ()=>{
 
@@ -43,7 +46,7 @@ const WatchListScreen = (props) => {
             }
            })
             .then(res => {
-              console.log(JSON.stringify(res.data.data.user.watchList));
+              // console.log(JSON.stringify(res.data.data.user.watchList));
               setWatchCities(res.data.data.user.watchList)
              
              getAllUrls(res.data.data.user.watchList)
@@ -54,7 +57,7 @@ const WatchListScreen = (props) => {
             });
 
  
-    },[])
+    },[isFocused ])
 
     async function getAllUrls(cities) {
       try {
@@ -65,7 +68,7 @@ const WatchListScreen = (props) => {
                  
                       )
                       );   
-                  // console.log(JSON.stringify(data))
+               
         setFinalData(data)
           return data
   

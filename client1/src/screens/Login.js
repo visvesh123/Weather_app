@@ -6,7 +6,8 @@ import { connect} from 'react-redux'
 import AppButton from '../components/AppButton';
 import axios from 'axios';
 import { Image } from 'react-native-elements';
-
+import LinearGradient from 'react-native-linear-gradient'
+import { gradient} from '../constants/Gradient'
 
 
 
@@ -155,15 +156,15 @@ const styles = StyleSheet.create({
         //borderWidth: 1,
         borderBottomWidth: 2,
         borderBottomColor: "grey",
-        //borderColor: "grey",
+        
         backgroundColor: "#fff",
     },
     temp : {
-      color : 'blue',
+      color : 'black',
       fontSize : 60
   },
   temp1 : {
-    color : 'blue',
+    color : 'black',
     fontSize : 18
 },
     passwordBar: {

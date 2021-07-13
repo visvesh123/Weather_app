@@ -3,6 +3,7 @@ import { View, Text, StyleSheet , Button , ScrollView ,FlatList ,TouchableOpacit
 import { Input  } from 'react-native-elements';
 import { fetchWeatherData ,searchCity } from '../store/actions'
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { Card } from 'react-native-elements';
 
 
@@ -16,6 +17,34 @@ const SearchScreen = (props) => {
         props.fetchWeatherData(city)
         props.searchCity(city)
         props.navigation.navigate('Weather')
+    }
+
+    const handleAddWatchList = ()=>{
+        console.log(city)
+       
+        axios({
+            url: 'http://localhost:4000/graphql',
+            method: 'post',
+            data: {
+             query: ` mutation{
+                addWatchList(id:"60e494e6b6a5c1517008fb0f" , cityname : "${city}"){
+                 
+                
+                 watchList
+                 id
+                }
+               }`
+            }
+           })
+            .then(res => {
+             console.log(JSON.stringify(res.data));
+             props.navigation.navigate('WatchList')
+            })
+            .catch(err => {
+             console.log(err);
+            }); 
+      
+
     }
 
     const fetchCities = (city)=>{
@@ -42,7 +71,9 @@ const SearchScreen = (props) => {
 <Button
   title="Search"
   onPress = {handleSearch}
+
 />
+<Button title="Add" onPress = {handleAddWatchList}/>
             <Button onPress={() => props.navigation.goBack()} title="Cancel" />
             <FlatList
         data={cities}

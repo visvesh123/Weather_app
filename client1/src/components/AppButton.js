@@ -7,7 +7,7 @@ import colors from "../constants/Color";
 function AppButton({ title, color, onPress, ...otherProps }) {
   return (
     <TouchableOpacity
-      style={[styles.container, { backgroundColor: color }]}
+      style={[styles.container, { backgroundColor: '#2596be' }]}
       onPress={onPress}
     >
       <AppText style={styles.text}>{title}</AppText>
@@ -18,11 +18,11 @@ function AppButton({ title, color, onPress, ...otherProps }) {
 const styles = StyleSheet.create({
   container: {
     width: "60%",
-    height: 35,
+    height: 45,
     alignItems: "center",
     justifyContent: "center",
     padding: 15,
-    borderRadius: 25,
+    borderRadius:15,
     marginTop: 25,
   },
   text: {
