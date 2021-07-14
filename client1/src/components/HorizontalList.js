@@ -7,7 +7,7 @@ import { gradient } from '../constants/Gradient';
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <>
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor] , {padding : 25  }}>
+  <TouchableOpacity onPress={onPress} style={ [styles.item, backgroundColor] , {padding : 10  }}>
     <LinearGradient colors={gradient[item.weather[0].icon]}>
     <Text style={[styles.title, textColor]}>{item.title}</Text>
     
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    padding: 20,
+    padding: 30,
     marginVertical: 8,
     marginHorizontal: 16,
     height : 150
@@ -86,6 +86,8 @@ const styles = StyleSheet.create({
     height: 50,
   },
   text : {
+    flex: 1,
+       
     color : 'white'
   }
 });

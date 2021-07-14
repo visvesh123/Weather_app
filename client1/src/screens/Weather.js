@@ -18,9 +18,7 @@ import Horizontal_List from '../components/HorizontalList';
 import OtherDetailsList from '../components/OtherDetailsList';
 import axios from 'axios';
 import {
-  Card,
-  ListItem,
-  Divider,
+
   Chip,
   Image,
 
@@ -58,7 +56,7 @@ const WeatherScreen = props => {
   };
 
   const retItem = !props.city ? null : (
-    <Text style={styles.text}>{JSON.stringify(props.city.data.data)}</Text>
+    <Text style={styles.text}>{JSON.stringify(props.city.data)}</Text>
   );
 
   const renPlaceItem = !props.place.data ? null : (
@@ -119,7 +117,7 @@ const WeatherScreen = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   text: {

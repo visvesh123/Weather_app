@@ -54,9 +54,9 @@ const handleRemove = (place)=>{
     }
 
 const Item = ({ title , main ,icon , place}) => (
-  <View style={{flex : 1 , alignContent : 'center' }}>
+  <View style={{flex : 1 , alignContent : 'center', textAlign:'center' }}>
     <LinearGradient  colors={gradient[icon]} style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{title} &deg;K</Text>
       <Text style={styles.title}>{main}</Text>
       <Image
   source={{ uri: `https://openweathermap.org/img/wn/${icon}@2x.png` }}
@@ -77,14 +77,14 @@ const Item = ({ title , main ,icon , place}) => (
 
   const renderItem = ({ item }) => {
       return(
-          <> 
+        <View style={{flex : 1 , alignContent : 'center' }}> 
           <TouchableOpacity  onPress= {() => handlePress(item)}>
     <Item title={item.current.temp} main={item.current.weather[0].main}
           icon = {item.current.weather[0].icon}  place={item.place}/>
         
     </TouchableOpacity>
    
-    </>
+    </View>
       )
   
   }
